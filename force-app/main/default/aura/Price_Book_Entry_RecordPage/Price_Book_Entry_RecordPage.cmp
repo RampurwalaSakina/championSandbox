@@ -150,7 +150,7 @@
                             <lightning:inputField fieldName="Product2Id" style="margin-top: 1rem;" value="{!v.pbEntry.Product2Id}" disabled="true" />
                             <lightning:inputField fieldName="Pricebook2Id" value="{!v.pbEntry.Pricebook2Id}" disabled="true" />
                             <lightning:inputField fieldName="UnitPrice" value="{!v.pbEntry.UnitPrice}" />
-                            <lightning:inputField fieldName="buildertek__Unit_Cost__c" value="{!v.pbEntry.buildertek__Unit_Cost__c}" onkeyup="{!c.handleUnitCost}" disabled="true" />
+                            <lightning:inputField fieldName="buildertek__Unit_Cost__c" value="{!v.pbEntry.buildertek__Unit_Cost__c}"  />
                             <lightning:inputField fieldName="Direct_Markup__c" value="{!v.pbEntry.Direct_Markup__c}" />
                             <lightning:inputField fieldName="buildertek__Markup__c" value="{!v.pbEntry.buildertek__Markup__c}" />                            
                             <lightning:inputField fieldName="Markup_Amount__c" value="{!v.pbEntry.Markup_Amount__c}" />

@@ -1,4 +1,5 @@
 public with sharing class Price_Book_Entry_Cls {
+    public static Boolean isRollUpCostChange= true;
 
     @AuraEnabled
     public static PricebookEntry getRecord(String recordId){
@@ -21,6 +22,8 @@ public with sharing class Price_Book_Entry_Cls {
         Decimal materialMarkupvalue = 0;
         Decimal equipmentMarkupvalue = 0;
         Decimal MiscellaneousMarkupvalue = 0;
+        System.debug('Rollup_Costs__c' + pbEntry.Rollup_Costs__c);
+
                 
         if (pbEntry.Equipment_Rental__c != null && pbEntry.Equipment_Rental__c != 0) {
             rollupListPrice += pbEntry.Equipment_Rental__c;
@@ -55,12 +58,18 @@ public with sharing class Price_Book_Entry_Cls {
             }
         }
 
+        System.debug('Rollup_Costs__c new' + pbEntry.Rollup_Costs__c);
+
+
         Decimal markUpAmount = 0;
         
         if (rollupListPrice > 0 ) {
+
             
             //comment due to CHB 57
-            // pbEntry.buildertek__Unit_Cost__c = rollupUnitCost;
+            if(rollupUnitCost !=  pbEntry.Rollup_Costs__c){
+                pbEntry.buildertek__Unit_Cost__c = rollupUnitCost;
+            }
             
             if(pbEntry.buildertek__Markup__c != null){
                 markUpAmount = pbEntry.buildertek__Markup__c * rollupListPrice/100;    
