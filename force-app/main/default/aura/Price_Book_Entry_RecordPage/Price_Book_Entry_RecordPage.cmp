@@ -1,9 +1,9 @@
 <aura:component controller="Price_Book_Entry_Cls" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
 
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:attribute name="pbEntry" type="PricebookEntry" default="{ 'sobjectType': 'PricebookEntry'}" />
     <aura:attribute name="viewMode" type="Boolean" default="true" />
-    
+
 
     <div style="background-color: white; padding-bottom: 2rem;">
 
@@ -44,10 +44,10 @@
                             <lightning:outputField class="bottom-line" fieldName="Projected_Sales_Price__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
                         </div>
-                        <lightning:outputField class="bottom-line" fieldName="CurrencyIsoCode" />                            
+                        <lightning:outputField class="bottom-line" fieldName="CurrencyIsoCode" />
                         <br></br>
                     </div>
-    
+
                     <div class="slds-col slds-size_1-of-2">
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" style="margin-top: 1rem;" fieldName="IsActive" />
@@ -66,11 +66,11 @@
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Labor_Markup__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Labor_Markup_Amount__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <br>	</br>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Material__c" />
@@ -79,11 +79,11 @@
                          <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Material_Markup__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Material_Markup_Amount__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <br>	</br>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Equipment_Rental__c" />
@@ -92,41 +92,41 @@
                          <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Equipment_Rental_Markup_Percent__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Equipment_Rental_Markup_Amount__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
-                       <br>	</br> 
+                        </div>
+                       <br>	</br>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Miscellaneous__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div>  
+                        </div>
                           <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Miscellaneous_Markup__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Miscellaneous_Markup_Amount__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
-                        
+                        </div>
+
                        <br>	</br>
 						<div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Rollup_Costs__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Rollup_of_Markup_Amounts__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div> 
+                        </div>
                         <div class="field-container">
                             <lightning:outputField class="bottom-line" fieldName="Rollup_Costs_Plus_Markup__c" />
                             <lightning:buttonIcon iconName="utility:edit" size="small" variant="bare" onclick="{!c.editRecord}" />
-                        </div>  
+                        </div>
                     </div>
                 </div>
-                                
+
 
                 <div class="headingDiv record-container"> Details </div>
                 <div class="slds-grid record-container">
@@ -139,7 +139,7 @@
                         <lightning:outputField fieldName="CreatedDate" />
                     </div>
                 </div>
-                    
+
             </lightning:recordViewForm>
 
             <aura:set attribute="else">
@@ -152,32 +152,32 @@
                             <lightning:inputField fieldName="UnitPrice" value="{!v.pbEntry.UnitPrice}" />
                             <lightning:inputField fieldName="buildertek__Unit_Cost__c" value="{!v.pbEntry.buildertek__Unit_Cost__c}"  />
                             <lightning:inputField fieldName="Direct_Markup__c" value="{!v.pbEntry.Direct_Markup__c}" />
-                            <lightning:inputField fieldName="buildertek__Markup__c" value="{!v.pbEntry.buildertek__Markup__c}" />                            
+                            <lightning:inputField fieldName="buildertek__Markup__c" value="{!v.pbEntry.buildertek__Markup__c}" />
                             <lightning:inputField fieldName="Markup_Amount__c" value="{!v.pbEntry.Markup_Amount__c}" />
                             <lightning:inputField fieldName="buildertek__Multiplier__c" value="{!v.pbEntry.buildertek__Multiplier__c}" />
                             <lightning:inputField fieldName="buildertek__Discount__c" value="{!v.pbEntry.buildertek__Discount__c}" />
                             <lightning:inputField fieldName="Projected_Sales_Price__c" value="{!v.pbEntry.Projected_Sales_Price__c}" />
                             <lightning:inputField fieldName="CurrencyIsoCode" value="{!v.pbEntry.CurrencyIsoCode}" disabled="true" />
                         </div>
-        
+
                         <div class="slds-col slds-size_1-of-2">
                             <lightning:inputField fieldName="IsActive" style="margin-top: 1rem;" value="{!v.pbEntry.IsActive}" />
                             <lightning:inputField fieldName="ProductCode" value="{!v.pbEntry.ProductCode}" disabled="true" />
                             <lightning:inputField fieldName="UseStandardPrice" value="{!v.pbEntry.UseStandardPrice}" disabled="true" />
                             <lightning:inputField fieldName="Labor__c" value="{!v.pbEntry.Labor__c}" />
-                            <lightning:inputField fieldName="Labor_Markup__c" value="{!v.pbEntry.Labor_Markup__c}" />     
-                            <lightning:inputField fieldName="Labor_Markup_Amount__c" value="{!v.pbEntry.Labor_Markup_Amount__c}" />   
+                            <lightning:inputField fieldName="Labor_Markup__c" value="{!v.pbEntry.Labor_Markup__c}" />
+                            <lightning:inputField fieldName="Labor_Markup_Amount__c" value="{!v.pbEntry.Labor_Markup_Amount__c}" />
                             <lightning:inputField fieldName="Material__c" value="{!v.pbEntry.Material__c}" />
-                            <lightning:inputField fieldName="Material_Markup__c" value="{!v.pbEntry.Material_Markup__c}" />     
-                            <lightning:inputField fieldName="Material_Markup_Amount__c" value="{!v.pbEntry.Material_Markup_Amount__c}" />   
+                            <lightning:inputField fieldName="Material_Markup__c" value="{!v.pbEntry.Material_Markup__c}" />
+                            <lightning:inputField fieldName="Material_Markup_Amount__c" value="{!v.pbEntry.Material_Markup_Amount__c}" />
                             <lightning:inputField fieldName="Equipment_Rental__c" value="{!v.pbEntry.Equipment_Rental__c}" onkeyup="{!c.handleEquipmentRental}" />
-							<lightning:inputField fieldName="Equipment_Rental_Markup_Percent__c" value="{!v.pbEntry.Equipment_Rental_Markup_Percent__c}" />     
-                            <lightning:inputField fieldName="Equipment_Rental_Markup_Amount__c" value="{!v.pbEntry.Equipment_Rental_Markup_Amount__c}" />                                
-                            <lightning:inputField fieldName="Miscellaneous__c" value="{!v.pbEntry.Miscellaneous__c}" />     
-                            <lightning:inputField fieldName="Equipment_Rental_Markup_Percent__c" value="{!v.pbEntry.Miscellaneous_Markup__c}" />     
+							<lightning:inputField fieldName="Equipment_Rental_Markup_Percent__c" value="{!v.pbEntry.Equipment_Rental_Markup_Percent__c}" />
+                            <lightning:inputField fieldName="Equipment_Rental_Markup_Amount__c" value="{!v.pbEntry.Equipment_Rental_Markup_Amount__c}" />
+                            <lightning:inputField fieldName="Miscellaneous__c" value="{!v.pbEntry.Miscellaneous__c}" />
+                            <lightning:inputField fieldName="Equipment_Rental_Markup_Percent__c" value="{!v.pbEntry.Miscellaneous_Markup__c}" />
                             <lightning:inputField fieldName="Equipment_Rental_Markup_Amount__c" value="{!v.pbEntry.Miscellaneous_Markup_Amount__c}" />
-                            <lightning:inputField fieldName="Rollup_Costs__c" value="{!v.pbEntry.Rollup_Costs__c}" /> 
-                            <lightning:inputField fieldName="Rollup_of_Markup_Amounts__c" value="{!v.pbEntry.Rollup_of_Markup_Amounts__c}" />                             
+                            <lightning:inputField fieldName="Rollup_Costs__c" value="{!v.pbEntry.Rollup_Costs__c}" />
+                            <lightning:inputField fieldName="Rollup_of_Markup_Amounts__c" value="{!v.pbEntry.Rollup_of_Markup_Amounts__c}" />
                             <lightning:inputField fieldName="Rollup_Costs_Plus_Markup__c" value="{!v.pbEntry.Rollup_Costs_Plus_Markup__c}" />
                         </div>
                     </div>
@@ -198,7 +198,7 @@
                     </div>
 
                 </lightning:recordViewForm>
-                
+
                 <div style="margin-left: 45%; margin-top: 1rem">
                     <lightning:button label="Cancel" title="Cancel" onclick="{!c.leaveEditForm}" class="myBtn"/>
                     <lightning:button variant="brand" label="Save" title="Save" onclick="{!c.saveRecord}"/>
