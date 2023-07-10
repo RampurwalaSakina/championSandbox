@@ -1,0 +1,154 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" controller="Vfquotecontroller" action="{!determinePage}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .input-field {
+            width: 100%;
+            height: 150px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        
+        .button-container {
+            text-align: right;
+            margin-top: 20px;
+        }
+        
+        .error-popup,
+        .thank-you-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        .error-popup h2,
+        .thank-you-popup h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .error-popup button,
+        .thank-you-popup button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #0070d2;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .final {
+          text-align: center;
+          margin-top: 100px;
+          font-family: Arial, sans-serif;
+          color: #333;
+        }
+        
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        
+        .text {
+          font-size: 18px;
+          line-height: 1.5;
+          margin-bottom: 40px;
+        }
+    </style>
+    
+    <script>
+        function showErrorPopup() {
+            document.getElementById('error-popup').style.display = 'block';
+        }
+        
+        function showThankYouPopup() {
+            document.getElementById('thank-you-popup').style.display = 'block';
+            showfinalPopup()
+        }
+        function showfinalPopup() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('final').style.display = 'block';
+        }
+        
+        function hidePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+        
+        function submitForm() {
+            var reason = document.getElementById('reason').value.trim();
+            
+            if (reason === '') {
+                showErrorPopup();
+            } else {
+                showThankYouPopup();
+                Vfquotecontroller.submitForm();
+            }
+        }
+        function cancelForm() {
+            window.close(); 
+        }
+    </script>
+    
+    <div id="form-container" class="form-container" style="display: block;">
+        <h1>Submit Reason</h1>
+        
+        <label for="reason" class="input-label">Reason:</label>
+        <textarea id="reason" class="input-field" placeholder="Enter the reason for Rejecting the Quote" value="{!reason}"></textarea>
+        
+        <div class="button-container">
+            <button onclick="submitForm()">Submit</button>
+            <button onclick="cancelForm()">Cancel</button>
+        </div>
+    </div>
+    
+    <!-- Error Popup -->
+    <div id="error-popup" class="error-popup" style="display: none;">
+        <h2>Error</h2>
+        <p>Please fill in the reason field.</p>
+        <button onclick="hidePopup('error-popup')">OK</button>
+    </div>
+    
+    <!-- Thank You Popup -->
+    <div id="thank-you-popup" class="thank-you-popup" style="display: none;">
+        <h2>Thank You</h2>
+        <p>Your reason has been submitted successfully.</p>
+        <button onclick="hidePopup('thank-you-popup')">OK</button>
+    </div>
+    
+    <div id="final" class="final" style="display: none;">
+        <div class="title">Quote Rejected</div>
+        <div class="text">
+          Thankyou for Rejecting the Quote.
+        </div>
+        <button onclick="cancelForm()">Close</button>
+    </div>
+</apex:page>
